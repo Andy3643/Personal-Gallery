@@ -24,3 +24,12 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category
+    
+class Location(models.Model):
+    '''
+    create location model
+    '''
+    location = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.location
