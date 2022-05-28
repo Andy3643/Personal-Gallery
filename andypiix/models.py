@@ -1,7 +1,63 @@
+from ast import Delete
 from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
+#CRUD
+class Category(models.Model):
+    '''
+    create a  Category model
+    '''
+    category = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.category
+    
+    
+    def save_category(self):
+        """
+        add new category to database
+        """
+        self.save()
+        
+    def update_category(self):
+        """
+        edit existing category in database
+        """
+        pass
+    
+    def delete_category(self):
+        """
+        delete existing category from the database
+        """
+        self.delete()
+        
+class Location(models.Model):
+    '''
+    create location model
+    '''
+    location = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.location
+    
+    def save_location(self):
+        """
+        save new location to database
+        """
+        self.save()
+    
+    def update_location(self):
+        """
+        edit location saaved in the database
+        """
+        pass
+    
+    def Delete_location(self):
+        """
+        delete location from the database
+        """
+        self.delete()
 class Image(models.Model):
     """
     create an image model
@@ -15,21 +71,30 @@ class Image(models.Model):
     def __str__(self):
         return self.image_name
     
-
-class Category(models.Model):
-    '''
-    create a  Category model
-    '''
-    category = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.category
+    def add_image(self):
+        """
+        add new image to database storage
+        """
+        self.save()
+        
+    def update_image(self):
+        """
+        replace a certain image in the database
+        """
+        pass
     
-class Location(models.Model):
+    def delete_image(self):
+        """
+        Remove image from database
+        """
+        self.delete()
+        
+
+class Tag(models.Model):
     '''
-    create location model
+    image tag class
     '''
-    location = models.CharField(max_length=30)
+    name = models.CharField(max_length=30) 
 
     def __str__(self):
-        return self.location
+        return self.name
