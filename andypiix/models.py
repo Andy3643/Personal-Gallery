@@ -89,6 +89,38 @@ class Image(models.Model):
         """
         self.delete()
         
+    @classmethod
+    def get_all_images(cls):
+        """
+        get all images from database
+        """
+        return cls.objects.all()
+
+    @classmethod
+    def search_image_by_id(cls):
+        """
+        search image using id
+        """ 
+        found_image = cls.objects.filter(pk = id)
+        return found_image
+    
+    @classmethod
+    def search_image_by_category(cls,searched_category):
+        '''
+        filter the images by category
+        '''
+        found_image = cls.objects.filter(image_category__category__icontains=searched_category)
+        return found_image
+
+    @classmethod
+    def search_by_location(cls,location):
+        '''
+        filter images by their location
+        '''
+        found_image = cls.objects.filter(image_location__location__icontains=location)
+        return found_image
+
+    
 
 class Tag(models.Model):
     '''
