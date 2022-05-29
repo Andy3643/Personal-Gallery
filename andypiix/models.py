@@ -1,6 +1,7 @@
 from ast import Delete
 from distutils.command.upload import upload
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 #CRUD
@@ -62,14 +63,14 @@ class Image(models.Model):
     """
     create an image model
     """
-    image = models.ImageField(upload_to='andypiix/')
+    image = CloudinaryField('image')
     img_name = models.CharField(max_length=40)
     img_description = models.TextField()
     img_category = models.ForeignKey(Category,on_delete=models.CASCADE)
     img_location = models.ForeignKey(Location,on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.image_name
+        return self.img_name
     
     def add_image(self):
         """
@@ -122,11 +123,11 @@ class Image(models.Model):
 
     
 
-class Tag(models.Model):
-    '''
-    image tag class
-    '''
-    name = models.CharField(max_length=30) 
+# class Tag(models.Model):
+#     '''
+#     image tag class
+#     '''
+#     name = models.CharField(max_length=30) 
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
