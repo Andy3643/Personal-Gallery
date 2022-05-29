@@ -1,19 +1,30 @@
-<div class="card" style="width: 30vw;">
-  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-    <img src="{{photo.image.url}}" class="img-fluid" style="width: 30vw;"/>
-    <a href="#!">
-      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-    </a>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-      Launch demo modal
-    </button>
-  </div>
-</div>
+{% extends 'base.html' %}
 
+{% block content %}
+ <div class="row container mt-5">  
+   <div>
+{% for photo in image %}
+<div class="card" style="width: 30vw;">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="{{photo.image.url}}" class="img-fluid" style="width: 30vw;"/>
+      <a href="#!">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+      </a>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{photo.img_name}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+        Launch demo modal
+      </button>
+    </div>
+  </div>
+
+  <!--modal popup-->
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -22,9 +33,9 @@
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>{{photo.img_description}}</p>
+        <p>{{photo.img_category}}</p>
+        <p>{{photo.img_location}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
@@ -33,3 +44,9 @@
     </div>
   </div>
 </div>
+{% endfor%}
+
+</div>
+</div>
+
+  {% endblock %}
