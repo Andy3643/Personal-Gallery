@@ -2,9 +2,9 @@
 
 {% block content %}
 <h1>im displaying</h1>
- <div class="row container mt-5">  
-   <div>
+ <div class="row mt-5 mx-auto">  
 {% for photo in image %}
+<div class="col-3 m-auto">
 <div class="card" style="width: 25vw;">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
       <img src="{{photo.image.url}}" class="img-fluid" style="width: 25vw;"/>
@@ -18,6 +18,7 @@
           VIEW DETAILS
       </button>
     </div>
+  </div>
   </div>
 
   <!--modal popup-->
@@ -33,13 +34,13 @@
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <br>
         <p>{{photo.img_description}}</p>
-        <p>{{photo.img_category}}</p>
-        <p>{{photo.img_location}}</p>
+        <p><i class="fas fa-map-marker-alt"></i> {{photo.img_location}}</p>
+        <p><i>Category ~ {{photo.img_category}}</i></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -47,6 +48,6 @@
 {% endfor%}
 
 </div>
-</div>
+
 
   {% endblock %}
