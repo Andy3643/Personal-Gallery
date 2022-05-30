@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Image
+from .models import Image,Category,Location
+import pyperclip
 # Create your views here.
 def index(request):
     image = Image.objects.all()
@@ -19,6 +20,6 @@ def search_images (request):
         }
         return render(request,'search.html',context)
 
-    else:
-        message = "Input a relevant search"
-        return render(request,'search.html',{"message":message})
+    # else:
+    #     message = "Input a relevant search"
+    #     return render(request,'search.html',{"message":message})
