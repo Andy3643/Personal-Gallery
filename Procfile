@@ -1,1 +1,1 @@
-web: gunicorn andypiix.wsgi
+web: gunicorn andypiix.wsgi --log-file -
