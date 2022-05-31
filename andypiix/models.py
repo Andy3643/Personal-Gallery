@@ -110,7 +110,7 @@ class Image(models.Model):
         '''
         filter the images by category
         '''
-        found_image = cls.objects.filter(image_category__category__icontains=searched_category)
+        found_image = cls.objects.filter(img_category__category__icontains=searched_category)
         return found_image
 
     @classmethod

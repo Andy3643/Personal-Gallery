@@ -6,5 +6,57 @@
     {% else %}
         <h2>Found 0 images for {{message}}</h2>
     {% endif %}
+
+<!--Loop display-->
+<div class="row mt-5 mx-auto">  
+    {% for photo in searched_images %}
+    <div class="col-3 mt-5" style="margin-left: 5vw;">
+    <div class="card" style="width: 25vw;">
+        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+          <img src="{{photo.image.url}}" class="img-fluid" style="width: 25vw;"/>
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{photo.img_name}}</h5>
+          <button type="button" class="btn btn-light" data-mdb-toggle="modal" data-mdb-target="#exampleModal{{photo.id}}">
+              VIEW DETAILS
+          </button>
+        </div>
+      </div>
+      </div>
+    
+      <!--modal popup-->
+      <!-- Button trigger modal -->
+    
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal{{photo.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{photo.img_name}}</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <br>
+            <p>{{photo.img_description}}</p>
+            <br>
+            <p><i class="fas fa-map-marker-alt"></i> {{photo.img_location}}</p>
+            <p><i>Category ~ {{photo.img_category}}</i></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor%}
+    
+    </div>
+    
+
+
 {% endblock %}
 </div>

@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>im displaying</h1>
  <div class="row mt-5 mx-auto">  
 {% for photo in image %}
-<div class="col-3 m-auto">
-<div class="card" style="width: 25vw;">
+<div class="col-md-3 mt-5" style="margin-left: 5vw;">
+<div class="card" style="">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-      <img src="{{photo.image.url}}" class="img-fluid" style="width: 25vw;"/>
+      <img src="{{photo.image.url}}" class="img-fluid" />
       <a href="#!">
         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
       </a>
