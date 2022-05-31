@@ -45,8 +45,6 @@ python3 manage.py tests
 ```
 
 
-
-
 ## Deployment
 
 Read the following [document](https://github.com/jakhax/deploying-django-to-heroku-manual) to learn how to deploy django applications.
